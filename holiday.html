@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>flex实现横向等高流式布局</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+    <style type="text/css">
+    .container{
+        display: flex;
+        flex-wrap: wrap;//自动换行
+
+        }
+    .container::after{
+        content: '';
+        flex-grow: 100000;//最后一行的处理，使其图片少的时候不会扭曲图片拉伸到行的100%
+    }
+    .image-item{
+        height: 200px;
+        margin: 5px;
+        flex-grow: 1;//撑大子元素使其向右对齐
+    }
+    .image-item img{
+        height: 100%;
+        min-width: 100%;//div盒子撑大，里面的图片也要布满整个div
+    }
+
+
+    .container .image-item {
+
+        position: relative;
+        overflow: hidden;
+    }
+    .image-item .link_box {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: #252525;
+        color: #ffffff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+     .image-item .link_box h5 {
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+
+     .image-item .link_box a {
+        display: inline-block;
+        padding: 7px 35px;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        font-size: 15px;
+    }
+
+     .image-item .link_box a:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+     .image-item:hover .link_box {
+        top: 0;
+        opacity: 0.9;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="image-item">
+        <img src="images/img_1.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                The sea
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_2.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                Snow mountain
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_3.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                The valley
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_4.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                mountain
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_5.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                The coastline
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_6.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                The setting sun
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_7.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                the hills
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_8.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                The village road
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_9.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                sunset
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_10.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                Yellow sunset clouds
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_11.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                White flowers
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_12.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                city
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+    <div class="image-item">
+        <img src="images/img_13.jpg" alt="">
+        <div class="link_box">
+            <h5>
+                sun light
+            </h5>
+            <a href="">
+                LIKE
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
